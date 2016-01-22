@@ -9,7 +9,7 @@
 #define PeriodicCallback_H_
 #include "Arduino.h"
 
-// Example usage (write time since last callback to serial monitor ever 500ms, stop on 4th callback):
+// Example usage (write time since last callback to serial monitor every 500ms, stop on 4th callback):
 //
 //    #include <PeriodicCallback.h>    
 //
