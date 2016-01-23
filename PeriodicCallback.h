@@ -32,6 +32,7 @@
 
 class PeriodicCallback {
 private:
+  bool mIsRunning;
   unsigned long mPeriod;
   unsigned long mStartTime;
   unsigned long mLastTime;
@@ -39,9 +40,9 @@ private:
 
 
 public:
-  PeriodicCallback(): mPeriod(0), mStartTime(0), mLastTime(0), mCallbackFunction(NULL) {}; 
+  PeriodicCallback(): mIsRunning(false), mPeriod(0), mStartTime(0), mLastTime(0), mCallbackFunction(NULL) {}; 
   PeriodicCallback(unsigned long const period, void (*callbackFunction)(unsigned long const)): 
-    mPeriod(period), mCallbackFunction(callbackFunction), mStartTime(0), mLastTime(0){};
+    mIsRunning(false), mPeriod(period), mCallbackFunction(callbackFunction), mStartTime(0), mLastTime(0){};
 
   // Use new period.  Will take effect immediately if this is running.  Note that the actual period
   // may be approximate, depending on how much time is spent in other parts of the run loop
