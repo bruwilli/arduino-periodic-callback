@@ -24,9 +24,10 @@ void PeriodicCallback::update() {
     unsigned long currentTime = millis();
     unsigned long elapsedTime = currentTime - mStartTime;
     if (elapsedTime >= mPeriod) {
-      mCallbackFunction(currentTime - mLastTime);
+      unsigned long lastTime = mLastTime;
       mLastTime = currentTime;
       mStartTime = currentTime - (elapsedTime % mPeriod);
+      mCallbackFunction(currentTime - lastTime);
     }
   }
 }
